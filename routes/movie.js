@@ -1,9 +1,21 @@
 const express = require("express");
-const mongoose = require("mongoose");
+const router = express.router();
+const Movie = require("../models/movies");
 
-const app = express();
-
-app.get("/api/movies", (req, res) => {
+router.get("/api/movies", async (req, res) => {
   try {
-  } catch (error) {}
+    const movies = await Movie.find();
+    res.json(movies);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.get("/api/movies/:id", async (req, res) => {
+  try {
+    const movies = await Movie.findById();
+    res.json(movies);
+  } catch (error) {
+    
+  }
 });
