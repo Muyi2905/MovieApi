@@ -2,7 +2,9 @@ const express = require("express");
 const router = express.Router();
 const Movie = require("../models/movies.js");
 
-router.get("/api/movies", async (req, res) => {
+router.use(express.json());
+
+router.get("/movies", async (req, res) => {
   try {
     const movies = await Movie.find();
     res.json(movies);
@@ -15,7 +17,7 @@ router.get("/api/movies/:id", async (req, res) => {
   try {
     const movie = await Movie.findById(req.params.id);
     if (!movie) {
-      return res.status(400).json({ error: error.message });
+      return res.status(400).json({ message: "Movie not found" });
     }
     res.json(movie);
   } catch (error) {

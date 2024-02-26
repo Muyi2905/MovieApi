@@ -8,8 +8,8 @@ const PORT = 4000;
 const app = express();
 
 app.use(express.json());
-app.use("/movie", MovieRoutes);
-app.use("/show", ShowRoutes);
+app.use("/api", MovieRoutes);
+app.use("/api", ShowRoutes);
 
 mongoose
   .connect("mongodb://localhost:27017/MovieApi", {
