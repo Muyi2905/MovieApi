@@ -1,0 +1,67 @@
+{
+  "Title": "Inception",
+  "Genre": ["Science Fiction", "Action", "Thriller"],
+  "ReleaseYear": 2010,
+  "Cast": [
+    {
+      "actorName": "Leonardo DiCaprio",
+      "role": "Dom Cobb"
+    },
+    {
+      "actorName": "Joseph Gordon-Levitt",
+      "role": "Arthur"
+    },
+    {
+      "actorName": "Ellen Page",
+      "role": "Ariadne"
+    }
+  ],
+  "Crew": [
+    {
+      "crewMemberName": "Christopher Nolan",
+      "role": "Director"
+    },
+    {
+      "crewMemberName": "Hans Zimmer",
+      "role": "Composer"
+    }
+  ],
+  "Ratings": [
+    {
+      "source": "IMDb",
+      "value": 8.8
+    },
+    {
+      "source": "Rotten Tomatoes",
+      "value": 87
+    }
+  ],
+  "Reviews": [
+    {
+      "reviewer": "Roger Ebert",
+      "comment": "A film that demands to be experienced on the big screen, Inception is a true cinematic masterpiece.",
+      "rating": 4.5
+    },
+    {
+      "reviewer": "Peter Travers",
+      "comment": "Inception is mind-blowing, visually stunning, and emotionally engaging. A must-see!",
+      "rating": 5
+    }
+  ],
+  "Trailers": [
+    {
+      "url": "https://www.youtube.com/watch?v=YoHD9XEInc0",
+      "title": "Inception - Official Trailer"
+    }
+  ],
+  "StreamingAvailability": [
+    {
+      "platform": "Netflix",
+      "link": "https://www.netflix.com/in/title/70131314"
+    },
+    {
+      "platform": "Amazon Prime Video",
+      "link": "https://www.amazon.com/Inception-Leonardo-DiCaprio/dp/B0047WJ11G"
+    }
+  ]
+}
