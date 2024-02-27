@@ -58,4 +58,17 @@ router.patch("/shows/:id", async (req, res) => {
   }
 });
 
+router.delete("/shows/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const deletedShow = await Show.findByIdAndDelete(id);
+    if (!deletedShow) {
+      return res.status(404).json({ message: "Movie not found" });
+    }
+    res.json({ message: "Movie deleted successfully", deletedShow });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 module.exports = router;
