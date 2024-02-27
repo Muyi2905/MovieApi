@@ -35,9 +35,16 @@ router.post("/register", async (req, res) => {
   }
 });
 
-router.post("/login", (req, res) => {
+router.post("/login", verifyToken, (req, res) => {
   try {
     const user = req.body;
+    jwt.verify(req.token, process.env.ACCESS_TOKEN_SECRET, (err, AuthData) => {
+      if (err) {
+        res.sendStatus(403).json({ error: "error" });
+      } else {
+        res.json(AuthData);
+      }
+    });
 
     if (!user) {
       console.log("error adding user ");
@@ -56,5 +63,17 @@ router.post("/login", (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
+
+function verifyToken(req, res, next) {
+  const bearerHeader = req.headers["authorization"];
+  if (bearerHeader !== undefined) {
+    const bearer = bearerHeader.split(" ");
+    const bearerToken = bearer[1];
+    req.token = bearerToken;
+    next();
+  } else {
+    res.sendStatus(403).json({ error: "internal server error" });
+  }
+}
 
 module.exports = router;
