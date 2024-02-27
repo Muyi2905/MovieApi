@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Movie = require("../models/movies.js");
+const { findByIdAndUpdate } = require("./models/shows.js");
 
 router.get("/movies", async (req, res) => {
   try {
@@ -33,6 +34,21 @@ router.post("/movies", async (req, res) => {
     return res.status(200).json(new_movie);
   } catch (error) {
     console.error(error);
+    res.status(500).json({ error: "internal server error" });
+  }
+});
+
+router.patch("/movies/:id", async (req, res) => {
+  try {
+    const updated_movie = await findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    if (!updated_movie) {
+      console.error("error updating movie");
+      res.status(404).json({ error: "cannot update" });
+    }
+    return res.status.json(updated_movie);
+  } catch (error) {
     res.status(500).json({ error: "internal server error" });
   }
 });
