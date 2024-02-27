@@ -2,12 +2,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 const MovieRoutes = require("./routes/movie.js");
 const ShowRoutes = require("./routes/show.js");
+const UserRoutes = require("./routes/auth.js");
 
 const PORT = 4000;
 
 const app = express();
 
 app.use(express.json());
+
+app.use("/api", UserRoutes);
 app.use("/api", MovieRoutes);
 app.use("/api", ShowRoutes);
 
